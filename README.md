@@ -10,7 +10,7 @@ A production-grade, full-stack monorepo for scheduling and processing automated 
 
 ---
 
-## 🏗 Monorepo Architecture Overview
+## Monorepo Architecture Overview
 
 ```
 reachinbox-scheduler/
@@ -38,7 +38,7 @@ reachinbox-scheduler/
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 - **Node.js**: v20+
@@ -82,7 +82,7 @@ npm run dev
 
 ---
 
-## 📧 Ethereal Email Setup & Previewing Sent Emails
+## Ethereal Email Setup & Previewing Sent Emails
 
 The backend uses **Nodemailer** integrated with **Ethereal Email** (an SMTP sandbox service).
 1. By default, if `ETHEREAL_USER` and `ETHEREAL_PASS` are empty in `backend/.env`, the system automatically provisions a dynamic Ethereal test account on startup.
@@ -91,7 +91,7 @@ The backend uses **Nodemailer** integrated with **Ethereal Email** (an SMTP sand
 
 ---
 
-## ⚙️ Core Architecture & Requirements Implementation
+## Core Architecture & Requirements Implementation
 
 ### 1. Scheduler Engine & Zero-Cron Guarantee
 - **No Cron Jobs**: Scheduling is powered exclusively by **BullMQ delayed jobs**.
@@ -121,7 +121,7 @@ The backend uses **Nodemailer** integrated with **Ethereal Email** (an SMTP sand
 
 ---
 
-## ⚡ Load Behavior Analysis (1,000+ Emails in 1 Minute)
+## Load Behavior Analysis (1,000+ Emails in 1 Minute)
 
 ### Scenario: 1,000 emails scheduled to fire simultaneously in the same minute
 
@@ -142,7 +142,7 @@ The backend uses **Nodemailer** integrated with **Ethereal Email** (an SMTP sand
 
 ---
 
-## 🔔 Slack Notification Integration
+## Slack Notification Integration
 - Supports full **Slack OAuth v2** authorization flow (`GET /api/slack/auth` & `GET /api/slack/callback`).
 - Stores bot access tokens and incoming webhook URLs per tenant/user in PostgreSQL.
 - On rate-limit trip, fetches credentials from DB on trigger (no memory caching at boot).
@@ -151,14 +151,14 @@ The backend uses **Nodemailer** integrated with **Ethereal Email** (an SMTP sand
 
 ---
 
-## 🔍 Elasticsearch Full-Text Search
+## Elasticsearch Full-Text Search
 - On email write or status update, document is indexed into Elasticsearch `emails` index.
 - Endpoint `GET /api/emails/search?q=query` performs multi-match fuzzy search across `subject^3`, `recipient^2`, and `body^1`.
 - Includes graceful fallback to PostgreSQL ILIKE query if Elasticsearch is starting up or disconnected.
 
 ---
 
-## ✅ Feature Checklist Mapped to Brief Specs
+## Feature Checklist Mapped to Brief Specs
 
 | Feature Requirement | Status | Implementation Details |
 | :--- | :---: | :--- |
