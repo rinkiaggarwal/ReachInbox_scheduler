@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg-pitch text-text-main font-sans antialiased selection:bg-red selection:text-white;
+    background-color: #09090B;
+  }
+}
+
+/* Minimalist Dark Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* Clean Card Component Base */
+.card-panel {
+  background: #121215;
+  border: 1px solid #27272A;
+}
+
+.card-panel-hover {
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card-panel-hover:hover {
+  border-color: #3F3F46;
+  background: #18181B;
+}
+
+/* Red Accent Button */
+.btn-red-primary {
+  background-color: #DC2626;
+  color: #FAFAFA;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-red-primary:hover {
+  background-color: #B91C1C;
+}
+
+.btn-red-primary:active {
+  transform: scale(0.99);
+}
